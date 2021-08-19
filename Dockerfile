@@ -35,6 +35,7 @@ RUN mkdir install-tl-unx && \
       > ./install-tl-unx/texlive.profile && \
     ./install-tl-unx/install-tl \
       -profile ./install-tl-unx/texlive.profile && \
+      -repository https://ctan.math.washington.edu/tex-archive/systems/texlive/tlnet/ && \
     rm -rf *
 
 # Set up Japanese fonts
