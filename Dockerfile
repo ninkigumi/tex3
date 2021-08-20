@@ -56,6 +56,7 @@ RUN tlmgr repository add http://contrib.texlive.info/current tlcontrib && \
     kanji-config-updmap-sys --jis2004 hiragino-highsierra-pron && \
     luaotfload-tool -u -f && \
     fc-cache -r && \
+    kanji-config-updmap-sys auto && \
     kanji-config-updmap-sys status && \
     wget -q -O /usr/local/bin/llmk https://raw.githubusercontent.com/wtsnjp/llmk/master/llmk.lua && \
     chmod +x /usr/local/bin/llmk
