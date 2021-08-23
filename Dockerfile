@@ -121,3 +121,6 @@ RUN tlmgr repository add http://contrib.texlive.info/current tlcontrib && \
 
 
 VOLUME ["/usr/local/texlive/${TL_VERSION}/texmf-var/luatex-cache"]
+
+WORKDIR /app
+CMD ["sh"]
