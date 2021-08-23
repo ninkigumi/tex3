@@ -14,7 +14,7 @@ ENV PATH=/usr/local/texlive/${TEXLIVE_VER}/bin/x86_64-linux:/usr/local/texlive/$
 RUN set -x && \
     cd / && \
     apk update && \
-    apk add --no-cache --virtual .fetch-deps curl xz && \
+    apk add --no-cache --virtual .fetch-deps curl xz libc6-compat && \
     apk add --no-cache --virtual .glibc-bin-deps libgcc && \
     apk add --no-cache perl fontconfig-dev freetype-dev ghostscript && \
     curl -L ${GLIBC_URL_BASE}/${GLIBC_VER}/glibc-bin-${GLIBC_VER}-$(arch).tar.gz | \
@@ -53,7 +53,7 @@ RUN set -x && \
     curl -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz | \
       tar zx -C /tmp/install-tl-unx --strip-components=1 && \
     { \
-      echo "selected_scheme scheme-full"; \
+      echo "selected_scheme scheme-basic"; \
       echo "tlpdbopt_install_docfiles 0"; \
       echo "tlpdbopt_install_srcfiles 0"; \
       echo "binary_$(arch)-linuxmusl 0"; \
