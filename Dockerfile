@@ -4,7 +4,7 @@
 
 FROM alpine:3.13
 
-ARG GLIBC_VER=2.33
+ARG GLIBC_VER=2.34
 ARG TEXLIVE_VER=2021
 
 ENV LANG=C.UTF-8
@@ -61,6 +61,7 @@ RUN set -x && \
      } | tee /tmp/install-tl-unx/texlive.profile && \
     /tmp/install-tl-unx/install-tl \
       --profile=/tmp/install-tl-unx/texlive.profile && \
+      -repository https://ctan.math.washington.edu/tex-archive/systems/texlive/tlnet/ && \
     tlmgr install \
       collection-latexextra \
       collection-fontsrecommended \
